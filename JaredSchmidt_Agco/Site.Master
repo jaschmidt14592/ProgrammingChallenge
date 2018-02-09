@@ -47,13 +47,14 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" runat="server" href="~/">Application name</a>
+                    <a class="navbar-brand" runat="server" href="#">Programming Challenges</a>
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li><a runat="server" href="~/">Home</a></li>
-                        <li><a runat="server" href="~/About">About</a></li>
-                        <li><a runat="server" href="~/Contact">Contact</a></li>
+                        <%--<li><a runat="server" href="~/">Home</a></li>--%>
+                        <li><a runat="server" href="~/Calculator">Calculator</a></li>
+                        <li><a runat="server" href="~/StringSorter">String Sorter</a></li>
+                        <li><a runat="server" href="~/MagicSquare">Magic Square</a></li>
                     </ul>
                 </div>
             </div>
