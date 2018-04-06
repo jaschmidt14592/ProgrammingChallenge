@@ -86,4 +86,15 @@
 
     </div>
 </div>
+    
+                //HttpContext.Response.Headers.Add("refresh", "10; url=" + Url.Action("Index"));
+
+            var list = new List<KeyValuePair<string, int>>();
+            list.Add(new KeyValuePair<string, int>("Successful:", 300));
+            list.Add(new KeyValuePair<string, int>("Unsuccessful:", 50));
+            list.Add(new KeyValuePair<string, int>("Unprocessed:", 150));
+            list.Add(new KeyValuePair<string, int>("Total:", 500));
+
+
+            return View(list);
 </asp:Content>
