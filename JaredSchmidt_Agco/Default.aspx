@@ -39,4 +39,51 @@
         </div>
     </div>
 
+    @model List<KeyValuePair<string,int>>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutTest.cshtml";
+
+    double successful = Model.FirstOrDefault(x => x.Key == "Successful:").Value;
+    double unsuccessful = Model.FirstOrDefault(x => x.Key == "Unsuccessful:").Value;
+    double unprocessed = Model.FirstOrDefault(x => x.Key == "Unprocessed:").Value;
+    double total = successful + unsuccessful + unprocessed;
+}
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+<div class="container m-5">
+    <div class="mb-3">
+        <h1>Billing Progress Status</h1>
+    </div>
+    <div class="mb-3">
+        <p>Status: In-Progress</p>
+    </div>
+    <div class="progress" style="height: 3rem;">
+        <div class="progress-bar" role="progressbar" style="width: @(successful/total*100)%"></div>
+        <div class="progress-bar" role="progressbar" style="width: @(unsuccessful/total*100)%; background-color: red;"></div>
+        <div class="progress-bar" role="progressbar" style="width: @(unprocessed/total*100)%; background-color: gainsboro;"></div>
+    </div>
+    <div class="mt-3">
+        <table>
+            <tr>
+                <td style="color: blue; font-weight: bold; width: 150px;">Successful:</td>
+                <td>@successful</td>
+            </tr>
+            <tr>
+                <td style="color: red; font-weight: bold;">Unsuccessful:</td>
+                <td>@unsuccessful</td>
+            </tr>
+            <tr>
+                <td style="color: gainsboro; font-weight: bold;">Unprocessed:</td>
+                <td>@unprocessed</td>
+            </tr>
+            <tr>
+                <td style="font-weight: bold;">Total:</td>
+                <td>@total</td>
+            </tr>
+        </table>
+
+    </div>
+</div>
 </asp:Content>
